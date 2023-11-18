@@ -1,0 +1,336 @@
+{
+    "info": {
+      "_postman_id": "d11a687c-8e51-4bd6-a2db-fd72f1471ce1",
+      "name": "Hackathon Middleware Gateway",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "_exporter_id": "15020622"
+    },
+    "item": [
+      {
+        "name": "01 Customer details",
+        "request": {
+          "method": "GET",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/airport/customers/:pid/details",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "airport",
+              "customers",
+              ":pid",
+              "details"
+            ],
+            "variable": [
+              {
+                "key": "pid",
+                "value": "510892B000014EBB"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      },
+      {
+        "name": "02 Customer bag allowance",
+        "request": {
+          "method": "POST",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/airport/customers/:pid/:sid/bagallowance",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "airport",
+              "customers",
+              ":pid",
+              ":sid",
+              "bagallowance"
+            ],
+            "variable": [
+              {
+                "key": "pid",
+                "value": "510892B000014EBB"
+              },
+              {
+                "key": "sid",
+                "value": "5009A2B00005D613"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      },
+      {
+        "name": "03 Customer regulatory requirements",
+        "request": {
+          "method": "POST",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/airport/customers/:pid/:sid/regulatoryrequirements",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "airport",
+              "customers",
+              ":pid",
+              ":sid",
+              "regulatoryrequirements"
+            ],
+            "variable": [
+              {
+                "key": "pid",
+                "value": "510892B000014EBB"
+              },
+              {
+                "key": "sid",
+                "value": "5009A2B00005D613"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      },
+      {
+        "name": "04 Flight seat map",
+        "request": {
+          "method": "POST",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/airport/flights/:pid/:sid/seatmaps?fid=CX259",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "airport",
+              "flights",
+              ":pid",
+              ":sid",
+              "seatmaps"
+            ],
+            "query": [
+              {
+                "key": "fid",
+                "value": "CX259"
+              }
+            ],
+            "variable": [
+              {
+                "key": "pid",
+                "value": "510892B0000153AC"
+              },
+              {
+                "key": "sid",
+                "value": "5009A2B00005E3F4"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      },
+      {
+        "name": "05 Flight details",
+        "request": {
+          "method": "POST",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/airport/flights?fid=CX259",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "airport",
+              "flights"
+            ],
+            "query": [
+              {
+                "key": "fid",
+                "value": "CX259"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      },
+      {
+        "name": "06 cargo flight list",
+        "request": {
+          "method": "GET",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/cargo/flights/list?pageNum=1&pageSize=50&userPort=HKG&depArr=DEP,ARR&oprDateFrom=2023-10-01&oprDateTo=2023-11-01",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "cargo",
+              "flights",
+              "list"
+            ],
+            "query": [
+              {
+                "key": "pageNum",
+                "value": "1"
+              },
+              {
+                "key": "pageSize",
+                "value": "50"
+              },
+              {
+                "key": "userPort",
+                "value": "HKG"
+              },
+              {
+                "key": "depArr",
+                "value": "DEP,ARR"
+              },
+              {
+                "key": "oprDateFrom",
+                "value": "2023-10-01"
+              },
+              {
+                "key": "oprDateTo",
+                "value": "2023-11-01"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      },
+      {
+        "name": "07 Cargo flight details",
+        "request": {
+          "method": "GET",
+          "header": [
+            
+          ],
+          "url": {
+            "raw": "https://developers.cathaypacific.com/hackathon-apigw/cargo/flights/details?userPort=HKG&depArr=ARR&carrier=CX&fltNum=100&fltDate=2023-11-19",
+            "protocol": "https",
+            "host": [
+              "developers",
+              "cathaypacific",
+              "com"
+            ],
+            "path": [
+              "hackathon-apigw",
+              "cargo",
+              "flights",
+              "details"
+            ],
+            "query": [
+              {
+                "key": "userPort",
+                "value": "HKG"
+              },
+              {
+                "key": "depArr",
+                "value": "ARR"
+              },
+              {
+                "key": "carrier",
+                "value": "CX"
+              },
+              {
+                "key": "fltNum",
+                "value": "100"
+              },
+              {
+                "key": "fltDate",
+                "value": "2023-11-19"
+              }
+            ]
+          }
+        },
+        "response": [
+          
+        ]
+      }
+    ],
+    "auth": {
+      "type": "apikey",
+      "apikey": [
+        {
+          "key": "value",
+          "value": "",
+          "type": "string"
+        },
+        {
+          "key": "key",
+          "value": "apiKey",
+          "type": "string"
+        }
+      ]
+    },
+    "event": [
+      {
+        "listen": "prerequest",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ]
+        }
+      },
+      {
+        "listen": "test",
+        "script": {
+          "type": "text/javascript",
+          "exec": [
+            ""
+          ]
+        }
+      }
+    ]
+  }
