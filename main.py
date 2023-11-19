@@ -113,8 +113,7 @@ class SQL:
 
     def select(self, tableName: str, columns: list = [], condition: dict = {}):
         result = self.cursor.execute(self.sql.selectStatement(tableName, columns, condition))
-        if len(condition) != 0:
-            result = self.cursor.fetchall()
+        result = self.cursor.fetchall()
         return result
 
     def insertSingle(self, tableName: str, columns: list, values: tuple):
@@ -145,19 +144,16 @@ def req():
     match request.method:
         case "GET":
             _id = request.args.get("id")
-            body = request.get_json()
             columns = []
-            if "columns" in body:
-                if type(body["columns"]) != list:
-                    return 'bad request!', 400
-                columns = body["columns"]
+            if _id == None:
+                return sql.select("cargoInfo", columns), 200
             return sql.select("cargoInfo", columns, {"where": "_id=" + _id}), 200
         case "POST":
             x = request.args.get('x')
             y = request.args.get('y')
             z = request.args.get('z')
             price = PRICE_RATIO * float(x) * float(y) * float(z)
-            print(f'x: {x}, y: {y}, z: {z}, price: {price}') 
+            print(f'x: {x}, y: {y}, z: {z}, price: {price}')
             if price < MIN_PRICE:
                 price = MIN_PRICE
             sql.insertSingle("cargoInfo", ["created_at", "updated_at", "dimension_x", "dimension_y", "dimension_z", "price"], (str(time.time()), str(time.time()), float(x), float(y), float(z), price))
@@ -168,4 +164,3 @@ def start():
     app.run(debug=True, port=SERVER_PORT, host=SERVER_HOST)
 
 start()
-""" sql.insertSingle("cathayPacific.cargoInfo", ["created_at", "updated_at", "dimension_x", "dimension_y", "dimension_z", "price"], (str(time.time()), str(time.time()), 1.0, 2.0, 3.0, 4.0)) """
