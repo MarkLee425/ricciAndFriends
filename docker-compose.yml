@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASSWORD=ricci
+      - DB_NAME=cathayPacific
+      - SERVER_HOST=localhost
+      - SERVER_PORT=8080
+      - PRICE_RATIO=3.6
+      - MIN_PRICE=40
+      - API_KEY=thisIsSecure
+
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_ROOT_USERNAME=root
+      - MYSQL_ROOT_PASSWORD=ricci
