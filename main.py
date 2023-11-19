@@ -1,6 +1,7 @@
 import mysql.connector
 from flask import Flask, request
 import time
+from flask_cors import CORS, cross_origin
 
 DB_HOST = "localhost"
 DB_USER = "root"
@@ -132,12 +133,14 @@ app = Flask(__name__)
 database = Database()
 cursor = Cursor()
 sql = SQL(cursor)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 def sql_workflow():
     sql.createTable("cargoInfo", "_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, created_at VARCHAR(250) NOT NULL, updated_at VARCHAR(250) NOT NULL, dimension_x FLOAT, dimension_y FLOAT, dimension_z FLOAT, price FLOAT")
 
 """ sql_workflow() """
 @app.route("/cargo/info", methods=["GET", "POST"])
+@cross_origin()
 def req():
     if (request.headers["Authorization"] != str(API_KEY)):
         return "Unauthorized", 401
